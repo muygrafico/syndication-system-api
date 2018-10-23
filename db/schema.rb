@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_10_23_151950) do
   create_table "purchases", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "investor"
     t.bigint "sold"
+    t.string "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

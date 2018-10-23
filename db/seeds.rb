@@ -6,5 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Product.create(id: 7854232322, price_in_dollars: 300000, business_product_id: 7854232322)
-Product.create(id: 3075472457, price_in_dollars: 150000, business_product_id: 3075472457)
+Product.create(price_in_dollars: 300000, business_product_id: 7854232322)
+Product.create(price_in_dollars: 150000, business_product_id: 3075472457)
+
+productID = Product.find_by(business_product_id: 3075472457).id
+
+Purchase.create(sold: 50000, investor: 'Y combinator', product_id: productID)
+Purchase.create(sold: 50000, investor: 'SassStr', product_id: productID)
