@@ -9,12 +9,10 @@
 #  updated_at          :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  amount: 
-  created: 2018-10-22
-
-two:
-  amount: 
-  created: 2018-10-22
+class ProductSerializer
+  include FastJsonapi::ObjectSerializer  
+  set_key_transform :camel_lower
+  set_id :business_product_id
+  attributes :price_in_dollars
+  attribute :year, &:created_at  
+end

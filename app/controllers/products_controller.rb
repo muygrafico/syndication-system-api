@@ -4,13 +4,14 @@ class ProductsController < ApplicationController
   # GET /products
   def index
     @products = Product.all
-
-    render json: @products
+    @json_string = ProductSerializer.new(@products).serialized_json
+    render json: @json_string
   end
 
   # GET /products/1
   def show
-    render json: @product
+    @json_string = ProductSerializer.new(@product).serialized_json
+    render json: @json_string
   end
 
   # POST /products

@@ -9,6 +9,9 @@ gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+#A lightning fast JSON:API serializer for Ruby Objects.
+gem 'fast_jsonapi'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -27,7 +30,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors', require: 'rack/cors'
-
+# Annotate Rails classes with schema and routes info
+gem 'annotate'
 # gem 'money-rails'
 
 group :development, :test do

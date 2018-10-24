@@ -3,9 +3,12 @@ class PurchasesController < ApplicationController
 
   # GET /purchases
   def index
-    @purchases = Purchase.all
-
-    render json: @purchases
+    # @purchases = Purchase.all
+    # @purchases = Purchase.where(business_product_id: params[:product_id])
+    @Product_id = Product.find_by(business_product_id: params[:product_id]).id
+    @purchases = Purchase.where(product_id: @Product_id)
+    @json_string = PurchaseSerializer.new(@purchases).serialized_json
+    render json: @json_string
   end
 
   # GET /purchases/1
