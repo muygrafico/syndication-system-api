@@ -15,4 +15,5 @@ class ProductSerializer
   set_id :business_product_id
   attributes :price_in_dollars
   attribute :year, &:created_at  
+  attribute :internal_id, &:id  
 end

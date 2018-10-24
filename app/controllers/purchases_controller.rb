@@ -19,7 +19,12 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(purchase_params)
 
     if @purchase.save
-      render json: @purchase, status: :created, location: @purchase
+      # render json: @purchase, status: :created
+      render json: {
+        status: 200,
+        response: "ok",
+        message: "Successfully created purchase.",
+    }.to_json
     else
       render json: @purchase.errors, status: :unprocessable_entity
     end
@@ -47,6 +52,6 @@ class PurchasesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def purchase_params
-      params.require(:purchase).permit(:investor, :sold)
+      params.require(:purchase).permit(:investor, :sold, :product_id)
     end
 end
