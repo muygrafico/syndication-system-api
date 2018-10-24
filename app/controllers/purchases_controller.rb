@@ -3,8 +3,6 @@ class PurchasesController < ApplicationController
 
   # GET /purchases
   def index
-    # @purchases = Purchase.all
-    # @purchases = Purchase.where(business_product_id: params[:product_id])
     @Product_id = Product.find_by(business_product_id: params[:product_id]).id
     @purchases = Purchase.where(product_id: @Product_id)
     @json_string = PurchaseSerializer.new(@purchases).serialized_json
@@ -44,7 +42,7 @@ class PurchasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
-      @purchase = Purchase.find_by(params[:id])
+      @purchase = Purchase.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
